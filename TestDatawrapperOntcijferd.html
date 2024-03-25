@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Voeg viewport meta tag toe voor responsiviteit -->
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 5px 20px
+        }
+	
+	.header-container {
+	  max-width: 800px;
+	  width: 100%;
+	  margin: 0 auto;
+          overflow: hidden;
+	  float: left;
+	}
+
+	h2 {
+            color: #104271;
+            display: inline-block;
+            border-bottom: #104271 3px solid;
+            margin: 0; /* Verwijder standaard marges van de h2 */
+        }
+
+        .tab-container {
+          width: 100%;
+	  padding: 30px 0px;
+          margin: 2px auto;
+          float: left;
+        }
+
+	.map-container {
+	  float: left;
+	}
+    
+        .tab-header {
+          overflow: hidden;
+        }
+    
+        .tab-header button {
+          background-color: #f2f2f2;
+          float: left;
+          border: 1px solid darkgrey;
+          outline: none;
+          cursor: pointer;
+          padding: 10px 20px;
+	  margin: 10px 0px;
+          transition: background-color 0.3s;
+          font-weight: bold;
+        }
+    
+        /* Donkere tekstkleur voor geselecteerd tabblad */
+        .tab-header button.selected {
+            background-color: #b4b4b4; /* Donkere tekstkleur voor geselecteerd tabblad */
+        }
+
+        .tab-content {
+          display: none;
+          padding: 6px;
+        }
+
+        .hover-text {
+          position: absolute;
+          top: 6%;
+          left: 20%;
+          transform: translateX(-40%);
+          text-align: left;
+          font-size: 13px;
+          opacity: 0;
+          visibility: hidden;
+          background-color: #a0bf35; /* Voeg hier de gewenste achtergrondkleur toe */
+          color: white; /* Voeg hier de gewenste tekstkleur toe */
+          padding: 10px;
+          transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .tab-header:hover .hover-text {
+          opacity: 1;
+          visibility: visible;
+        }
+
+	.tab-content iframe {
+            max-width: 100%; /* Zorg ervoor dat iframes niet breder zijn dan hun container */
+        }
+        
+      </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">DSASP-349600844-336913</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">f8c094c6-45dd-4fc9-98fe-b0f4dc1f8b5a</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://pomwvl.sharepoint.com/sites/dsa/_layouts/15/DocIdRedir.aspx?ID=DSASP-349600844-336913, DSASP-349600844-336913</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+
+<body>
+
+<div class="header-container">
+    <h2>West-Vlaanderen Ontcijferd: Werkloosheid & Vacatures</h2>
+</div>
+
+<div class="tab-container">
+    <div class="tab-header">
+        <button onmouseover="showHoverText('Het aantal werkzoekenden zonder werk in verhouding tot de bevolking op beroepsactieve leeftijd (20-64 jaar).')" onmouseout="hideHoverText()" onclick="openTab('tab1')" id="defaultOpen">Werkloosheidsdruk</button>
+        <button onmouseover="showHoverText('Het gemiddeld aantal werkzoekenden zonder werk ten opzichte van het gemiddeld aantal openstaande vacatures.')" onmouseout="hideHoverText()" onclick="openTab('tab2')">Arbeidsmarktkrapte</button>
+        <div class="hover-text" id="hoverText"></div>
+    
+    </div>
+
+    <div class="tab-content" id="tab1">
+        <iframe title="" aria-label="Map" id="datawrapper-chart-8ifKz" src="https://datawrapper.dwcdn.net/8ifKz/12/" scrolling="no" frameborder="0" style="width: 60%; min-width: 60% !important; border: none;" height="698" data-external="1"></iframe>
+        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();</script>
+    </div>
+
+    <div class="tab-content" id="tab2">
+        <iframe title="" aria-label="Map" id="datawrapper-chart-mYagv" src="https://datawrapper.dwcdn.net/mYagv/3/" scrolling="no" frameborder="0" style="width: 60%; min-width: 60% !important; border: none;" height="698" data-external="1"></iframe>
+        <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();</script>
+    </div>
+
+</div>
+
+
+<script>
+
+    // Functie om hover-tekst te tonen
+    function showHoverText(text) {
+        document.getElementById('hoverText').textContent = text;
+        document.getElementById('hoverText').style.opacity = 1;
+        document.getElementById('hoverText').style.visibility = 'visible';
+        }
+
+    // Functie om hover-tekst te verbergen
+    function hideHoverText() {
+        document.getElementById('hoverText').style.opacity = 0;
+        document.getElementById('hoverText').style.visibility = 'hidden';
+        }
+
+    // JavaScript om het eerste tabblad te openen bij het laden van de pagina
+    document.getElementById("defaultOpen").click();
+
+    function openTab(tabName) {
+      var i, tabContent, tabButtons;
+      tabContent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+      
+    tabButtons = document.getElementsByClassName("tab-header")[0].getElementsByTagName("button");
+        for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("selected");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.classList.add("selected");
+
+    }
+
+  </script>
+
+</body>
+</html>
